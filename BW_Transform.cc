@@ -3,12 +3,14 @@
 #include <iostream>
 #include <algorithm>
 
+#include "BW_Transform.h"
+
 
 using namespace std;
 
 // takes a string s and two indexes into that string, if the cyclic shift starting at index id1
 //   comes before that starting at id2 (lexicographically), returns true. Otherwise returns false
-int CyclicShiftLessThan(const string &s, int id1, int id2) {
+static bool CyclicShiftLessThan(const string &s, int id1, int id2) {
     // since we add terminal which comes before all others, no need to 'loop' as once one hits end it will be <
     while (id1 < s.length() && id2 < s.length()) {
         if (s[id1] < s[id2]) return true;
@@ -85,17 +87,3 @@ string BWdecode(string &s) {
 
 }
 
-int main() {
-    string s = "alfeatsalfalfa";
-    string es = BWencode(s);
-    string ds;
-    try {
-        ds = BWdecode(es);
-    } catch (...) {
-        cerr << "no '\0' character in s. Decoding cannot be completed" << endl;
-        return 1;
-    }
-    cout << "ORG: " << s << endl;
-    cout << "ENC: " << es << endl;
-    cout << "DEC: " << ds << endl;
-}

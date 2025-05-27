@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-// #include "BW_Transform.cc"
+#include "BW_Transform.h"
 
 using namespace std;
 
@@ -40,9 +40,21 @@ int main(int argc, char* argv[]) {
         cout << "Incorrect command line argument:\n" << cmdArgHelp << endl;
         return 0;
     }
-    // call correct functions...
-    string s = "ABCDEFG";
-    printString(s, 2);
+    
+    // BWT main helper
+    string s = "alfeatsalfalfa";
+    string es = BWencode(s);
+    string ds;
+    try {
+        ds = BWdecode(es);
+    } catch (...) {
+        cerr << "no '\0' character in s. Decoding cannot be completed" << endl;
+        return 1;
+    }
+    cout << "ORG: " << s << endl;
+    cout << "ENC: " << es << endl;
+    cout << "DEC: " << ds << endl;
+    // end of BWT main helper
 
     return 0;
 }
