@@ -15,20 +15,3 @@ std::string BWencode(std::string &s);
 std::string BWdecode(std::string &s);
 
 #endif
-
-/*
-int main() {
-    string s = "alfeatsalfalfa";
-    string es = BWencode(s);
-    string ds;
-    try {
-        ds = BWdecode(es);
-    } catch (...) {
-        cerr << "no '\0' character in s. Decoding cannot be completed" << endl;
-        return 1;
-    }
-    cout << "ORG: " << s << endl;
-    cout << "ENC: " << es << endl;
-    cout << "DEC: " << ds << endl;
-}
-*/

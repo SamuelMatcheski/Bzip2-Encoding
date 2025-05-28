@@ -2,6 +2,7 @@
 #include <string>
 
 #include "BW_Transform.h"
+#include "MTF_Transform.h"
 
 using namespace std;
 
@@ -41,6 +42,7 @@ int main(int argc, char* argv[]) {
         return 0;
     }
     
+    /*
     // BWT main helper
     string s = "alfeatsalfalfa";
     string es = BWencode(s);
@@ -55,6 +57,14 @@ int main(int argc, char* argv[]) {
     cout << "ENC: " << es << endl;
     cout << "DEC: " << ds << endl;
     // end of BWT main helper
+    */
+    string s = "alfeatsalfalfa";
+    string es1 = BWencode(s);
+    string es2 = MTFencode(es1);
+
+    cout << "s..: " << s << endl;
+    cout << "es1: " << es1 << endl;
+    cout << "es2: " << es2 << endl;
 
     return 0;
 }
