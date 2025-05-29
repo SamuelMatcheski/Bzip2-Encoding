@@ -1,0 +1,7 @@
+... [Description]
+
+On linux you can create extremely large text files by using:
+    > tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 100000 > bigfile.txt
+(creates a 100000 line file of 100 char lines)
+
+On Mac you just need to download coreutils, then run using gtr (instead of tr)

@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
 #include "MTF_Transform.h"
 
@@ -43,4 +44,21 @@ string MTFencode(string &s) {
         es.append(" ");
     }
     return es;
+}
+
+string MTFdecode(string &s) {
+    // initialize the dict
+    vector<char> dict(128);
+    for (int i = 0; i < 128; ++i) {
+        dict[i] = static_cast<char>(i);
+    }
+    // now we go through the string breaking on ints
+    istringstream iss(s);
+    int id;
+    string res;
+    while (iss >> id) {
+        res += dict[id];
+        mtf(dict, id);
+    }
+    return res;
 }
