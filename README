@@ -2,16 +2,19 @@
 
 Uses Burrows-Wheelers & Move-To-Front Transformations followed by Zero-Runs & Huffman Encoding schemes.
 
-Run ./bzip2 -e to compress any text file. Will output a compression ratio to stderr (compressed file size relative to original)
-Run ./bzip2 -d to decompress the compressed file
+Run `./bzip2 -e` to compress any text file. Will output a compression ratio to stderr (compressed file size relative to original).
+
+Run `./bzip2 -d` to decompress the compressed file.
 
 The compressed output will show as plain text 0's & 1's for readability but can easily be updated to a binary file.
+
 This project is an exercise in complex decoding algorithms. 
+
+---
 
 ### Note for creating test cases
 
-On linux you can create extremely large text files by using:
-    > tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 100000 > bigfile.txt
-(creates a 100000 line file of 100 char lines)
+On Linux you can create extremely large text files by using:
 
-On Mac you just need to download coreutils, then run using gtr (instead of tr)
+```bash
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100 | head -n 100000 > bigfile.txt
